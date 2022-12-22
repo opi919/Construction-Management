@@ -41,5 +41,7 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
             'role_id' => 1,
         ]);
+
+        User::factory(5)->create();
     }
 }

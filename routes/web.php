@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -21,8 +22,21 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/check', function () {
-    return view('Dashboards.CompanyDash.dashboard');
-});
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::group(['middleware' => ['superAdmin']], function () {
+        Route::prefix('expert')->group(function () {
+            Route::get('/', [SuperAdminController::class, 'expert_index'])->name('expert.index');
+            Route::get('/create', [SuperAdminController::class, 'create_expert'])->name('expert.create');
+            Route::post('/store', [SuperAdminController::class, 'store_expert'])->name('expert.store');
+        });
+
+        Route::prefix('company')->group(function () {
+            Route::get('/', [SuperAdminController::class, 'company_index'])->name('company.index');
+            Route::get('/create', [SuperAdminController::class, 'create_company'])->name('company.create');
+            Route::post('/store', [SuperAdminController::class, 'store_company'])->name('company.store');
+        });
+    });
+});
