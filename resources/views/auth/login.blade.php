@@ -29,10 +29,26 @@
                 <img src="{{ url('/') }}/DashboardResources/images/logo.svg" alt="logo">
               </div>
               <h6 class="font-weight-light">Sign in to continue.</h6>
+              <div>
+              @error('email')
+              <span class="text-danger">
+                    <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+              <div>
+              <div>
+              @error('password')
+              <span class="text-danger">
+                    <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+              <div>
               <form class="pt-3" method="POST" action="{{ route('login') }}">
+              @csrf  
                 <div class="form-group">
                   <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
                 </div>
+                
                 <div class="form-group">
                   <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                 </div>
