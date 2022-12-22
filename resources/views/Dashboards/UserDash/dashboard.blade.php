@@ -1,4 +1,4 @@
 @extends("Dashboards.AgentDash.layout.app-layout")
 @section("content")
-hi Agent
+hi User
 @endsection

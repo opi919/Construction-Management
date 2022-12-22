@@ -23,7 +23,7 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      @include('Dashboards.AgentDash.layout.nav')
+      @include('Dashboards.ExpertDash.layout.nav')
       <!-- partial -->
       <div class="main-panel">
         
