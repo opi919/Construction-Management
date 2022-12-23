@@ -8,6 +8,11 @@
             <p class="card-description">
               Add class <code>.table</code>
             </p>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="table-responsive">
               <table class="table">
                 <thead>

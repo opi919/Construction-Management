@@ -54,6 +54,7 @@
   <script src="{{ url('/') }}/DashboardResources/js/hoverable-collapse.js"></script>
   <script src="{{ url('/') }}/DashboardResources/js/template.js"></script>
   <script src="{{ url('/') }}/DashboardResources/js/todolist.js"></script>
+  <script src="{{ url('/') }}/DashboardResources/js/file-upload.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="{{ url('/') }}/DashboardResources/js/dashboard.js"></script>
